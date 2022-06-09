@@ -1,0 +1,332 @@
+/* 
+-----CSS Map------
+|   -General     |
+|   -Header      |
+|   -Logo        |
+|   -Gallery     |
+|   -Footer      |
+------------------
+*/
+
+
+
+/*-----general start-----*/
+
+*{box-sizing: border-box;}
+
+:root{
+    /* --primColor: #2a2727; */
+    --primColor: black;
+    --secColor: #ffde59;
+    --typeSpeed: 3s;
+    --typeCount: 6;
+}
+
+@import url('https://fonts.gstatic.com');
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: var(--primColor);
+}
+
+html,
+body{
+    /* fixed mobile issue with right side having blank space */
+    overflow-x: hidden;
+}
+
+.text{
+    font-size: 1.8rem;
+}
+
+/*-----general end-----*/
+
+/*-----Header start-----*/
+
+header{
+  border-bottom: var(--secColor) 1px solid;
+}
+
+.navbar-toggler{
+  background-color: var(--secColor) !important;
+}
+
+nav{
+  z-index: 3;
+  background-color: var(--primColor);
+}
+
+.logo{
+  width: 65px;
+}
+
+.nav-link-text{
+  font-size: 2.5rem;
+  color: var(--secColor) !important;
+}
+.nav-link-text:first-child{
+  margin-right: 2rem;
+}
+
+.nav-link-text:hover{
+  color: white !important;
+}
+
+.navbar-links{
+  margin-left: auto;
+}
+
+/*-----Header end-----*/
+
+/*-----Logo start-----*/
+
+/*
+    CSS from animation tutorial on YouTube by Kevin Powell
+    link in the next line:
+    https://www.youtube.com/watch?v=w1nhwUGsG6M 
+    && CSS from animation tutorial on YouTube by Web Dev Simplified
+    link in the next line:
+    https://www.youtube.com/watch?v=YszONjKpgg4
+*/
+
+
+.typeContainer{
+  position: relative;
+  height: 30rem;
+}
+
+.paint-roller{
+  font-size: 18rem;
+  position: absolute;
+  width: 100%;
+  top: -10%;
+  animation: paint var(--typeSpeed) 1s ease forwards;
+}
+
+.roller{
+  transform: rotate(-90deg);
+}
+
+@keyframes paint{
+  to {
+    transform: translate(100%);
+  }
+}
+
+.typeBody{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secColor);
+}
+
+.typeHeader{
+    font-size: 18rem;
+    position: relative;
+    width: max-content;
+}
+
+.typeHeader::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.typeHeader::before{
+    background: var(--primColor);
+    animation: 
+        typewriter var(--typeSpeed) 1s ease forwards;
+}
+
+.subtitle{
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeIn 2s ease calc(var(--typeSpeed) + 1.4s) forwards;
+}
+
+@keyframes typewriter{
+    to {left: 100%;}
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+        transform: translate(0, 0)
+    }
+}
+
+@media (max-width: 1200px){
+    .typeContainer{
+      height: 32rem;
+      margin-left: 13%;
+      width: 60%;
+      margin-left: 12%;
+    }
+    .typeHeader{
+        font-size: 15rem;
+    }
+    .paint-roller{
+      font-size: 15rem;
+    }
+}
+@media (max-width: 830px){
+    .typeContainer{
+      height: 28rem;
+      margin-left: 13%;
+    }
+    .typeHeader{
+        font-size: 9.6rem;
+    }
+    .paint-roller{
+      font-size: 9.6rem;
+    }
+}
+@media (max-width: 660px){
+    .typeContainer{
+        height: 28rem;   
+    }
+    .typeHeader{
+        font-size: 6.2rem;
+    }
+    .subtitle{
+        font-size: 3.2rem;
+    }
+    .paint-roller{
+      font-size: 6.2rem;
+    }
+}
+@media (max-width: 490px){
+    .typeContainer{
+        height: 16rem;
+        margin-left: 12%;
+    }
+    .typeHeader{
+        font-size: 6.2rem;
+    }
+    .subtitle{
+        font-size: 2.2rem;
+    }
+    .paint-roller{
+      font-size: 6.2rem;
+    }
+}
+@media (max-width: 340px){
+    .typeContainer{
+        height: 14rem;
+    }
+    .typeHeader{
+        font-size: 5.2rem;
+    }
+    .subtitle{
+        font-size: 1.8rem;
+    }
+    .paint-roller{
+      font-size: 5.2rem;
+    }
+}
+
+/*-----Logo end-----*/
+
+
+/*-----About start-----*/
+
+.about-container{
+  padding: 0.5rem 0.5rem;
+}
+
+.about-header{
+  color: var(--secColor);
+  font-size: 3.5rem;
+}
+
+.about-text{
+  color: white;
+  font-size: 2.4rem;
+}
+
+/*-----About end-----*/
+
+/*-----Gallery Start-----*/
+
+.gallery-container{
+  padding: 2rem 0.5rem;
+}
+
+.gallery-header{
+  color: var(--secColor);
+  font-size: 3.5rem;
+}
+
+.gallery-text{
+  color: white;
+  font-size: 2.4rem;
+}
+
+/*-----Gallery end-----*/
+
+/*-----Card start-----*/
+
+.card-card{
+  position: relative;
+}
+
+.card-label{
+  position: absolute;
+  padding: 0.5em 0.5em;
+  color: var(--secColor);
+  background-color: rgb(0,0,0, 0.4);
+  font-size: 2.4rem;
+}
+
+.after{
+  margin-top: 4px;
+}
+
+/*-----Card end-----*/
+
+.contact-body{
+  border-top: 0.1rem solid var(--secColor);
+  padding-top: 1rem;
+  padding-bottom: 0.4rem;
+  font-size: 2.4rem;
+  background-color: var(--primColor);
+}
+
+.footer-text-sec{
+  color: var(--secColor);
+}
+.footer-text-white{
+  color: white;
+}
+
+.colophon-body{
+    border-top: 0.2rem solid #d2d2d2cd;
+    padding-top: 1rem;
+    padding-bottom: 0.4rem;
+    font-size: 1.4rem;
+    background-color: #e8e8ea;
+}
+
+.colophon-text{
+    text-align: end;
+}
+
+@media (max-width: 991px){
+    .colophon-text{
+        text-align: center;
+    }
+}
+
+/*-----Footer end-----*/
